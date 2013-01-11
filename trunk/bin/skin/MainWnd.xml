@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="960,600" caption="0,0,0,110" roundcorner="4,4">
+    <Font name="微软雅黑" size="12" bold="false" italic="false" />
+    <Font name="微软雅黑" size="14" bold="false" italic="false" />
+    <Font name="微软雅黑" size="16" bold="false" italic="false" />
+    <VerticalLayout width="960" height="600" bkcolor="#FFFFFFFF" />
+</Window>
