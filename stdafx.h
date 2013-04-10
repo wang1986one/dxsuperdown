@@ -39,4 +39,6 @@ using namespace DuiLib;
 #   endif
 #endif
 
+#include "Model/MessageID.h"
+#include "Model/MenuID.h"
 

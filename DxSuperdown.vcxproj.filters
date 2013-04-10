@@ -15,6 +15,12 @@
     <ClInclude Include="resource.h">
       <Filter>Resource</Filter>
     </ClInclude>
+    <ClInclude Include="model\MenuID.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\MessageID.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -31,6 +37,9 @@
     </Filter>
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{504c3a1d-518f-4ec4-96d4-06fe7c0a6c84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{658f6a3a-51d0-45df-9948-95569989c084}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

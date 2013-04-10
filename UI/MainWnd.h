@@ -20,6 +20,9 @@ private:
 	virtual UILIB_RESOURCETYPE GetResourceType() const;
 	virtual CDuiString GetZIPFileName() const;
 
+	void OnClick(TNotifyUI &msg);
+	void OnSelectChaged(TNotifyUI &msg);
+	void OnMenu(UINT uMenuID);
 private:
 	// ≥…‘±÷∏’Î
 };
