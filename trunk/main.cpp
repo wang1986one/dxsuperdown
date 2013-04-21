@@ -16,7 +16,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	pFrame->CenterWindow();
 	pFrame->SetIcon(101);
 
-	CPaintManagerUI::MessageLoop();
+	CPaintManagerUI::MessageLoop();	// 启动UI主消息循环
  
 	::CoUninitialize();
 	return 0;

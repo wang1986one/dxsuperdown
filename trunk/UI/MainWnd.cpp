@@ -13,7 +13,16 @@ CMainWnd::~CMainWnd(void)
 void CMainWnd::InitWindow()
 {
 	// 成员初始化
+	HttpRequest* pRequest=new HttpRequest(_T("GET"),_T("http://www.flvcd.com/parse.php?kw=http://v.youku.com/v_show/id_XNDgyNjM1NjIw.html"));
+	// 下载数据到文件
+	pRequest->SetSaveToFile(_T("D:\\a.txt"));
 
+	// 下载数据到内存
+	//CMemBuffer buffer;
+	//pRequest->SetContentBuffer(&buffer);
+
+	m_http.SendAsyncRequest(pRequest);
+	m_http.WaitRequest(pRequest);
 }
 
 void CMainWnd::OnFinalMessage(HWND hWnd)
@@ -75,6 +84,11 @@ void CMainWnd::Notify( TNotifyUI &msg )
 
 LRESULT CMainWnd::HandleCustomMessage( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
 {
+	if (uMsg==WM_MENU_NOTIFY)
+	{
+		OnMenu(wParam,lParam);
+		return S_OK;
+	}
 	bHandled = FALSE;
 	return FALSE;
 }
@@ -177,7 +191,7 @@ void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 	}
 }
 
-void CMainWnd::OnMenu( UINT uMenuID )
+void CMainWnd::OnMenu( WPARAM wParam,LPARAM lParam )
 {
 	CControlUI * pControl = NULL;
 	CDuiString strMenuName = (TCHAR *)(LPCTSTR)pControl->GetUserData();

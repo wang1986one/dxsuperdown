@@ -22,7 +22,8 @@ private:
 
 	void OnClick(TNotifyUI &msg);
 	void OnSelectChaged(TNotifyUI &msg);
-	void OnMenu(UINT uMenuID);
+	void OnMenu(WPARAM wParam,LPARAM lParam);
 private:
 	// ≥…‘±÷∏’Î
+	HttpManager m_http;
 };

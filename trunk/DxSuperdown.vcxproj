@@ -110,6 +110,7 @@
     <ClCompile Include="main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Parser\FlvcdParser.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>
@@ -119,9 +120,27 @@
   <ItemGroup>
     <ClInclude Include="model\MenuID.h" />
     <ClInclude Include="model\MessageID.h" />
+    <ClInclude Include="Parser\FlvcdParser.h" />
+    <ClInclude Include="Parser\IParser.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="UI\MainWnd.h" />
+    <ClInclude Include="Utils\Delegate.h" />
+    <ClInclude Include="Utils\DelegateTemplate.h" />
+    <ClInclude Include="Utils\FileUtil.h" />
+    <ClInclude Include="Utils\MemBuffer.h" />
+    <ClInclude Include="Utils\MemLeak.h" />
+    <ClInclude Include="Utils\Network\HttpManager.h" />
+    <ClInclude Include="Utils\Network\HttpNotify.h" />
+    <ClInclude Include="Utils\Network\HttpRequest.h" />
+    <ClInclude Include="Utils\Network\NetworkUtils.h" />
+    <ClInclude Include="Utils\Network\WinHttp.h" />
+    <ClInclude Include="Utils\ProcessUtil.h" />
+    <ClInclude Include="Utils\StringUtil.h" />
+    <ClInclude Include="Utils\ThreadUtil.h" />
+    <ClInclude Include="Utils\TrayIcon.h" />
+    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Utils\WindowsUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Res\DxSuperdown.ico" />
