@@ -28,12 +28,14 @@ using namespace DuiLib;
 #ifdef _DEBUG
 #   ifdef _UNICODE
 #       pragma comment(lib, "DuiLib_ud.lib")
+#		 pragma comment(lib,"DxUtils_ud.lib")
 #   else
 #       pragma comment(lib, "DuiLib_d.lib")
 #   endif
 #else
 #   ifdef _UNICODE
 #       pragma comment(lib, "DuiLib_u.lib")
+#		 pragma comment(lib,"DxUtils_u.lib")
 #   else
 #       pragma comment(lib, "DuiLib.lib")
 #   endif
@@ -41,4 +43,18 @@ using namespace DuiLib;
 
 #include "Model/MessageID.h"
 #include "Model/MenuID.h"
+
+//////////////////////////////////////////////////////////////////////////
+// Parser
+#include "Parser/IParser.h"
+
+
+//////////////////////////////////////////////////////////////////////////
+//	 DxUtils 一些辅助函数类
+#include "Utils/Utils.h"
+#include "Utils/StringUtil.h"
+#include "Utils/Delegate.h"
+#include "Utils/Network/HttpManager.h"
+#pragma comment(lib,"ws2_32")
+using namespace Utils;
 
