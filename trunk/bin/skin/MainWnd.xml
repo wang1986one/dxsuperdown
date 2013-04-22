@@ -1,29 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<Window size="1024,512" sizebox="6,6,6,6" caption="0,0,0,36" mininfo="80,60" roundcorner="5,5">
-    <Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
-    <Font name="微软雅黑" size="12" bold="true" italic="false" />
-    <Default name="VScrollBar" value="button1normalimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;0,0,16,16&apos;&quot; button1hotimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;16,0,32,16,16&apos;&quot; button1pushedimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;32,0,48,16&apos;&quot; button2normalimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;0,32,16,48&apos;&quot; button2hotimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;16,32,32,48&apos;&quot; button2pushedimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;32,32,48,48&apos;&quot; thumbnormalimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;0,48,16,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbhotimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;16,48,32,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbpushedimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;32,48,48,64&apos; corner=&apos;0,2,0,2&apos;&quot; bknormalimage=&quot;file=&apos;Common\scrollbar_v.png&apos; source=&apos;0,16,16,32&apos;&quot;" />
-    <Default name="Combo" value="normalimage=&quot;file=&apos;Common\combo.png&apos; source=&apos;0,0,100,22&apos; corner=&apos;2,2,20,2&apos;&quot; hotimage=&quot;file=&apos;Common\combo.png&apos; source=&apos;0,22,100,44&apos; corner=&apos;2,2,22,2&apos;&quot; pushedimage=&quot;file=&apos;Common\combo.png&apos; source=&apos;0,44,100,66&apos; corner=&apos;2,2,22,2&apos;&quot;" />
-    <VerticalLayout width="1024" height="512">
-	<VerticalLayout height="70" >
-        <HorizontalLayout width="1024" height="30" bkcolor="#FF4775CC">
-            <HorizontalLayout>
-                <Control width="10" />
-                <Label name="apptitle" text="DxSuperDown test 1.0.0.45" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="1" />
-            </HorizontalLayout>
-            <HorizontalLayout width="96" height="25">
-                <Button name="minbtn" tooltip="最小化" width="26" height="18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;Common\minimize.png&apos;" hotimage="file=&apos;Common\minimize_h.png&apos;" pushedimage="file=&apos;Common\minimize_p.png&apos;" />
-                <Button name="maxbtn" tooltip="最大化" width="25" height="18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;Common\maximize.png&apos;" hotimage="file=&apos;Common\maximize_h.png&apos;" pushedimage="file=&apos;Common\maximize_h.png&apos;" />
-                <Button name="restorebtn" tooltip="恢复" visible="false" width="25" height="18" align="center" normalimage="file=&apos;Common\restore.png&apos;" hotimage="file=&apos;Common\restore_h.png&apos;" pushedimage="file=&apos;Common\restore_p.png&apos;" />
-                <Button name="closebtn" tooltip="关闭" width="43" height="18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;Common\close.png&apos;" hotimage="file=&apos;Common\close_h.png&apos;" pushedimage="file=&apos;Common\close_p.png&apos;" />
-            </HorizontalLayout>
-        </HorizontalLayout>
-      <HorizontalLayout padding="5,2,5,2" childpadding="1" >
-        <Button name="btn_menu"  text="新建(&amp;N)" width="85" height="27"  normalimage="file='Common\button.png'" hotimage="file='Common\button_h.png'" pushedimage="file='Common\button_p.png'"/>
-        <Button name="btn_menu1" text="设置(&amp;C)" width="85" height="27" normalimage="file='Common\button.png'" hotimage="file='Common\button_h.png'" pushedimage="file='Common\button_p.png'"/>
-        <Button name="btn_menu2" text="插件(&amp;P)" width="85" height="27" normalimage="file='Common\button.png'" hotimage="file='Common\button_h.png'" pushedimage="file='Common\button_p.png'"/>
-        <Button name="btn_menu3" text="关于(&amp;A)" width="85" height="27" normalimage="file='Common\button.png'" hotimage="file='Common\button_h.png'" pushedimage="file='Common\button_p.png'"/>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,36" roundcorner="5,5" size="994,664" sizebox="6,6,6,6" mininfo="80,60" showdirty="false">
+  <Font name="微软雅黑" size="12" bold="false" default="true" />
+  <Font name="微软雅黑" size="12" bold="true"/>  
+  <VerticalLayout bkcolor="#FFFFFFFF" bordersize="2" bordercolor="#FF0934DA">
+
+    <HorizontalLayout name="header" height="72" bkcolor="#FF4775CC" >
+      <HorizontalLayout>
+        <Control width="10"/>
+        <Label name="apptitle" text="DxSuperDown test 1.0.0.45" font="1" textcolor="#FFFFFFFF" />
       </HorizontalLayout>
-		</VerticalLayout>
-    </VerticalLayout>
+      <HorizontalLayout height="25" width="96" >
+        <Button name="minbtn" tooltip="最小化" height="18" width="26" normalimage="file='Common\minimize.png'" hotimage="file='Common\minimize_h.png'" pushedimage="file='Common\minimize_p.png'"/>
+        <Button name="maxbtn" tooltip="最大化" height="18" width="25" normalimage="file='Common\maximize.png'" hotimage="file='Common\maximize_h.png'" pushedimage="file='Common\maximize_h.png'"/>
+        <Button name="restorebtn" visible="false" tooltip="恢复" height="18" width="25" normalimage="file='Common\restore.png'" hotimage="file='Common\restore_h.png'" pushedimage="file='Common\restore_p.png'"/>
+        <Button name="closebtn" tooltip="关闭" height="18" width="43" normalimage="file='Common\close.png'" hotimage="file='Common\close_h.png'" pushedimage="file='Common\close_p.png'"/>
+      </HorizontalLayout>
+    </HorizontalLayout>
+  </VerticalLayout>
 </Window>

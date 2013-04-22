@@ -77,7 +77,7 @@ void CMainWnd::Notify( TNotifyUI &msg )
 	}
 	else if(msg.sType==_T("selectchanged"))
 	{
-		OnSelectChaged(msg);
+		//OnSelectChaged(msg);
 		return;
 	}
 }
