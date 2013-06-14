@@ -25,5 +25,7 @@ private:
 	void OnMenu(WPARAM wParam,LPARAM lParam);
 private:
 	// ≥…‘±÷∏’Î
+	CVerticalLayoutUI * SidebarLayout;
+
 	HttpManager m_http;
 };

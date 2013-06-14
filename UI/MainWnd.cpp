@@ -17,7 +17,10 @@ CMainWnd::~CMainWnd(void)
 
 void CMainWnd::InitWindow()
 {
+	
 	// 成员初始化
+	SidebarLayout = static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
+
 	HttpRequest* pRequest=new HttpRequest(_T("GET"),_T("http://www.flvcd.com/parse.php?kw=http://v.youku.com/v_show/id_XNDgyNjM1NjIw.html"));
 	// 下载数据到文件
 	//pRequest->SetSaveToFile(_T("D:\\a.txt"));
@@ -82,7 +85,7 @@ void CMainWnd::Notify( TNotifyUI &msg )
 	}
 	else if(msg.sType==_T("selectchanged"))
 	{
-		//OnSelectChaged(msg);
+		OnSelectChaged(msg);
 		return;
 	}
 }
@@ -149,7 +152,14 @@ void CMainWnd::OnClick( TNotifyUI &msg )
 void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 {
 	CDuiString name = msg.pSender->GetName();
-	if(name==_T("Download")
+	if (name==_T("ToggleSidebar"))
+	{
+		
+		//CVerticalLayoutUI * pControl = static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
+		SidebarLayout->SetVisible(!SidebarLayout->IsVisible());
+
+	}
+	else if(name==_T("Download")
 		||name==_T("VideoMerger")
 		||name==_T("MessageBoard")
 		||name==_T("Play")
@@ -176,11 +186,11 @@ void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 			else if(name==_T("TEST3"))
 				pControl->SelectItem(7);
 	}
+	
 	else if(name==_T("AllTasks")
 		||name==_T("IsDown")
 		||name==_T("Complete")
-		||name==_T("Recycle")
-		||name==_T("Search"))
+		||name==_T("Recycle"))
 	{
 		CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("下载标签页")));
 		if(name==_T("AllTasks"))
@@ -191,9 +201,9 @@ void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 			pControl->SelectItem(2);
 		else if(name==_T("Recycle"))
 			pControl->SelectItem(3);
-		else if(name==_T("Search"))
-			pControl->SelectItem(4);
+
 	}
+
 }
 
 void CMainWnd::OnMenu( WPARAM wParam,LPARAM lParam )
@@ -211,7 +221,7 @@ void CMainWnd::OnMenu( WPARAM wParam,LPARAM lParam )
 		|| strMenuName == _T("Menu_ZoomRatio_75")
 		|| strMenuName == _T("Menu_ZoomRatio_50"))
 	{
-		// OnMenu_ZoomRatio(msg);
+		 //OnMenu_ZoomRatio(msg);
 	}
 }
 
