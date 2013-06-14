@@ -5,7 +5,6 @@ namespace DuiLib
 {
 	CChildLayoutUI::CChildLayoutUI()
 	{
-
 	}
 
 	void CChildLayoutUI::Init()
@@ -13,7 +12,7 @@ namespace DuiLib
 		if (!m_pstrXMLFile.IsEmpty())
 		{
 			CDialogBuilder builder;
-			CContainerUI* pChildWindow = static_cast<CContainerUI*>(builder.Create(m_pstrXMLFile.GetData(), (UINT)0));
+			CContainerUI* pChildWindow = static_cast<CContainerUI*>(builder.Create(m_pstrXMLFile.GetData(), (UINT)0,NULL,m_pManager));
 			if (pChildWindow)
 			{
 				this->Add(pChildWindow);
