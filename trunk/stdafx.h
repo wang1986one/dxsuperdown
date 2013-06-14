@@ -41,14 +41,6 @@ using namespace DuiLib;
 #   endif
 #endif
 
-#include "Model/MessageID.h"
-#include "Model/MenuID.h"
-
-//////////////////////////////////////////////////////////////////////////
-// Parser
-#include "Parser/IParser.h"
-
-
 //////////////////////////////////////////////////////////////////////////
 //	 DxUtils 一些辅助函数类
 #include "Utils/Utils.h"
@@ -57,4 +49,13 @@ using namespace DuiLib;
 #include "Utils/Network/HttpManager.h"
 #pragma comment(lib,"ws2_32")
 using namespace Utils;
+
+//////////////////////////////////////////////////////////////////////////
+// 全局定义
+#include "Model/MessageID.h"
+#include "Model/MenuID.h"
+
+//////////////////////////////////////////////////////////////////////////
+// Parser
+#include "Parser/IParser.h"
 

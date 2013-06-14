@@ -1,118 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="UI\MainWnd.cpp">
-      <Filter>Source\UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Parser\FlvcdParser.cpp">
-      <Filter>Source\Parser</Filter>
+      <Filter>Parser</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source</Filter>
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UI\MainWnd.h">
-      <Filter>Header\UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="model\MenuID.h">
-      <Filter>Header\Model</Filter>
+      <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="model\MessageID.h">
-      <Filter>Header\Model</Filter>
+      <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="Parser\IParser.h">
-      <Filter>Header\Parser</Filter>
+      <Filter>Parser</Filter>
     </ClInclude>
     <ClInclude Include="Parser\FlvcdParser.h">
-      <Filter>Header\Parser</Filter>
+      <Filter>Parser</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Header</Filter>
+      <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Network\HttpManager.h">
-      <Filter>Header\Utils\Network</Filter>
+      <Filter>Utils\Network</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Network\HttpNotify.h">
-      <Filter>Header\Utils\Network</Filter>
+      <Filter>Utils\Network</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Network\HttpRequest.h">
-      <Filter>Header\Utils\Network</Filter>
+      <Filter>Utils\Network</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Network\NetworkUtils.h">
-      <Filter>Header\Utils\Network</Filter>
+      <Filter>Utils\Network</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Network\WinHttp.h">
-      <Filter>Header\Utils\Network</Filter>
+      <Filter>Utils\Network</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Delegate.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\DelegateTemplate.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\FileUtil.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\MemBuffer.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\MemLeak.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ProcessUtil.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\StringUtil.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ThreadUtil.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\TrayIcon.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Utils.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\WindowsUtils.h">
-      <Filter>Header\Utils</Filter>
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource">
       <UniqueIdentifier>{84fd2969-6c0b-46c8-af5f-3ad33155b81e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header">
-      <UniqueIdentifier>{bb4a02a9-1862-4102-9f07-cdfe1a78aa2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\UI">
-      <UniqueIdentifier>{ed9d4f32-85ac-498b-98b4-196c6e3460ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\Model">
+    <Filter Include="Model">
       <UniqueIdentifier>{658f6a3a-51d0-45df-9948-95569989c084}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header\Parser">
-      <UniqueIdentifier>{eecf1bd3-96e0-44a9-b8a2-8b4c944f95d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{c6e8af61-65e7-44cc-93bb-3378df6ccc20}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\UI">
-      <UniqueIdentifier>{504c3a1d-518f-4ec4-96d4-06fe7c0a6c84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Parser">
-      <UniqueIdentifier>{f830be48-09c4-4d24-b532-352f89604b1c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\Utils">
+    <Filter Include="Utils">
       <UniqueIdentifier>{d128a570-c3de-40e5-9092-f6aa6f27b4d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header\Utils\Network">
+    <Filter Include="Utils\Network">
       <UniqueIdentifier>{e96ef84f-9a8e-4fe2-9ee8-0973a64daf05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{ed9d4f32-85ac-498b-98b4-196c6e3460ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parser">
+      <UniqueIdentifier>{eecf1bd3-96e0-44a9-b8a2-8b4c944f95d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{bb4a02a9-1862-4102-9f07-cdfe1a78aa2c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

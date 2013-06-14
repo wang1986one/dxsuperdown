@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "MainWnd.h"
 
+#ifdef _DEBUG
+#include <Utils\MemLeak.h>
+#define new DEBUG_NEW
+#endif
+
 CMainWnd::CMainWnd(void)
 {
 }
@@ -15,11 +20,11 @@ void CMainWnd::InitWindow()
 	// 成员初始化
 	HttpRequest* pRequest=new HttpRequest(_T("GET"),_T("http://www.flvcd.com/parse.php?kw=http://v.youku.com/v_show/id_XNDgyNjM1NjIw.html"));
 	// 下载数据到文件
-	pRequest->SetSaveToFile(_T("D:\\a.txt"));
+	//pRequest->SetSaveToFile(_T("D:\\a.txt"));
 
 	// 下载数据到内存
-	//CMemBuffer buffer;
-	//pRequest->SetContentBuffer(&buffer);
+	CMemBuffer buffer;
+	pRequest->SetContentBuffer(&buffer);
 
 	m_http.SendAsyncRequest(pRequest);
 	m_http.WaitRequest(pRequest);
