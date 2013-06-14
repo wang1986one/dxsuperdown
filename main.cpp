@@ -15,6 +15,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	pFrame->CreateDuiWindow(NULL,_T("DxSuperdown"),UI_WNDSTYLE_DIALOG | WS_MAXIMIZEBOX | WS_MINIMIZEBOX);
 	pFrame->CenterWindow();
 	pFrame->SetIcon(101);
+	pFrame->ShowWindow();
 
 	CPaintManagerUI::MessageLoop();	// 启动UI主消息循环
  

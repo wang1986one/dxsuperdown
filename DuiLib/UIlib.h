@@ -89,3 +89,5 @@
 #include "Core/UIDlgBuilder.h"
 #include "Core/UIRender.h"
 
+#include "Utils/WinImplBase.h"
+

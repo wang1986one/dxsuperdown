@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include <WindowsX.h>
 #include <zmouse.h>
 
 namespace DuiLib {
@@ -335,7 +334,7 @@ SIZE CPaintManagerUI::GetClientSize() const
 {
     RECT rcClient = { 0 };
     ::GetClientRect(m_hWndPaint, &rcClient);
-    return CSize(rcClient.right - rcClient.left, rcClient.bottom - rcClient.top);
+    return CDuiSize(rcClient.right - rcClient.left, rcClient.bottom - rcClient.top);
 }
 
 SIZE CPaintManagerUI::GetInitSize()
@@ -634,7 +633,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
                     }
 					else
 					{
-						SendNotify(m_pRoot, _T("windowsize"),  rect.right - rect.left, rect.bottom - rect.top, false);
+						SendNotify(m_pRoot, _T("windowpaint"),  rect.right - rect.left, rect.bottom - rect.top, false);
 					}
                 }
             }
@@ -806,6 +805,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
                 m_hwndTooltip = ::CreateWindowEx(0, TOOLTIPS_CLASS, NULL, WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, m_hWndPaint, NULL, m_hInstance, NULL);
                 ::SendMessage(m_hwndTooltip, TTM_ADDTOOL, 0, (LPARAM) &m_ToolTip);
             }
+			::SendMessage( m_hwndTooltip,TTM_SETMAXTIPWIDTH,0, pHover->GetToolTipWidth());
             ::SendMessage(m_hwndTooltip, TTM_SETTOOLINFO, 0, (LPARAM) &m_ToolTip);
             ::SendMessage(m_hwndTooltip, TTM_TRACKACTIVATE, TRUE, (LPARAM) &m_ToolTip);
         }
@@ -1233,7 +1233,8 @@ void CPaintManagerUI::MessageLoop()
 
 void CPaintManagerUI::Term()
 {
-    if( m_bCachedResourceZip && m_hResourceZip != NULL ) {
+    if( m_bCachedResourceZip && m_hResourceZip != NULL )
+	{
         CloseZip((HZIP)m_hResourceZip);
         m_hResourceZip = NULL;
     }
@@ -1674,7 +1675,8 @@ HFONT CPaintManagerUI::AddFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool
     ::GetObject(::GetStockObject(DEFAULT_GUI_FONT), sizeof(LOGFONT), &lf);
     _tcscpy(lf.lfFaceName, pStrFontName);
     lf.lfCharSet = DEFAULT_CHARSET;
-    lf.lfHeight = -nSize;
+    lf.lfHeight = -nSize; 
+	lf.lfQuality = ANTIALIASED_QUALITY | PROOF_QUALITY;
     if( bBold ) lf.lfWeight += FW_BOLD;
     if( bUnderline ) lf.lfUnderline = TRUE;
     if( bItalic ) lf.lfItalic = TRUE;
@@ -1710,7 +1712,7 @@ HFONT CPaintManagerUI::AddFontAt(int index, LPCTSTR pStrFontName, int nSize, boo
     ::GetObject(::GetStockObject(DEFAULT_GUI_FONT), sizeof(LOGFONT), &lf);
     _tcscpy(lf.lfFaceName, pStrFontName);
     lf.lfCharSet = DEFAULT_CHARSET;
-    lf.lfHeight = -nSize;
+    lf.lfHeight = -nSize; 
     if( bBold ) lf.lfWeight += FW_BOLD;
     if( bUnderline ) lf.lfUnderline = TRUE;
     if( bItalic ) lf.lfItalic = TRUE;
@@ -1743,7 +1745,7 @@ HFONT CPaintManagerUI::AddFontAt(int index, LPCTSTR pStrFontName, int nSize, boo
 HFONT CPaintManagerUI::GetFont(int index)
 {
     if( index < 0 || index >= m_aCustomFonts.GetSize() ) return GetDefaultFontInfo()->hFont;
-    TFontInfo* pFontInfo = static_cast<TFontInfo*>(m_aCustomFonts[index]);
+    TFontInfo* pFontInfo = static_cast<TFontInfo*>(m_aCustomFonts[index]); 
     return pFontInfo->hFont;
 }
 

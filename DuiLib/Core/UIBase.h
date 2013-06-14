@@ -9,9 +9,9 @@ namespace DuiLib {
 //
 
 #define UI_WNDSTYLE_CONTAINER  (0)
-#define UI_WNDSTYLE_FRAME      (WS_VISIBLE | WS_OVERLAPPEDWINDOW)
-#define UI_WNDSTYLE_CHILD      (WS_VISIBLE | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN)
-#define UI_WNDSTYLE_DIALOG     (WS_VISIBLE | WS_POPUPWINDOW | WS_CAPTION | WS_DLGFRAME | WS_CLIPSIBLINGS | WS_CLIPCHILDREN)
+#define UI_WNDSTYLE_FRAME      (WS_OVERLAPPEDWINDOW)
+#define UI_WNDSTYLE_CHILD      (WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN)
+#define UI_WNDSTYLE_DIALOG     (WS_POPUPWINDOW | WS_CAPTION | WS_DLGFRAME | WS_CLIPSIBLINGS | WS_CLIPCHILDREN)
 
 #define UI_WNDSTYLE_EX_FRAME   (WS_EX_WINDOWEDGE)
 #define UI_WNDSTYLE_EX_DIALOG  (WS_EX_TOOLWINDOW | WS_EX_DLGMODALFRAME)
@@ -65,7 +65,7 @@ public:
     void ShowWindow(bool bShow = true, bool bTakeFocus = true);
     UINT ShowModal();
     void Close(UINT nRet = IDOK);
-    void CenterWindow();
+    void CenterWindow();	// 居中，支持扩展屏幕
     void SetIcon(UINT nRes);
 
     LRESULT SendMessage(UINT uMsg, WPARAM wParam = 0, LPARAM lParam = 0L);

@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <WindowsX.h>
 #include "UIDateTime.h"
 
 namespace DuiLib

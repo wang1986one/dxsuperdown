@@ -28,11 +28,11 @@ namespace DuiLib
 	CFlashUI::~CFlashUI(void)
 	{
 		// 为什么不需要析构？而且没有内存泄漏的提示
-		//if (m_pFlashEventHandler)
-		//{
-		//	m_pFlashEventHandler->Release();
-		//	m_pFlashEventHandler=NULL;
-		//}
+		if (m_pFlashEventHandler)
+		{
+			m_pFlashEventHandler->Release();
+			m_pFlashEventHandler=NULL;
+		}
 		ReleaseControl();
 	}
 
@@ -297,4 +297,10 @@ namespace DuiLib
 			SysFreeString(bstrOut);
 		}
 	}
+
+	CFlashEventHandler* CFlashUI::GetFlashEventHandler( void )
+	{
+		return m_pFlashEventHandler;
+	}
+
 };
