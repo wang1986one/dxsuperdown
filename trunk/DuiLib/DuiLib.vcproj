@@ -250,6 +250,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Utils\WinImplBase.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Utils\XUnzip.cpp"
 					>
 					<FileConfiguration
@@ -443,7 +447,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Utils\WinImplBase.hpp"
+					RelativePath=".\Utils\WinImplBase.h"
 					>
 				</File>
 			</Filter>

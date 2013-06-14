@@ -41,17 +41,31 @@ public:
     void SetBkColor3(DWORD dwBackColor);
     LPCTSTR GetBkImage();
     virtual void SetBkImage(LPCTSTR pStrImage);
-    DWORD GetBorderColor() const;
-    void SetBorderColor(DWORD dwBorderColor);
 	DWORD GetFocusBorderColor() const;
 	void SetFocusBorderColor(DWORD dwBorderColor);
     bool IsColorHSL() const;
     void SetColorHSL(bool bColorHSL);
-    int GetBorderSize() const;
-    void SetBorderSize(int nSize);
     SIZE GetBorderRound() const;
     void SetBorderRound(SIZE cxyRound);
     bool DrawImage(HDC hDC, LPCTSTR pStrImage, LPCTSTR pStrModify = NULL);
+
+	//边框相关
+	int GetBorderSize() const;
+	void SetBorderSize(int nSize);
+	DWORD GetBorderColor() const;
+	void SetBorderColor(DWORD dwBorderColor);
+
+	void SetBorderSize(RECT rc);
+	int GetLeftBorderSize() const;
+	void SetLeftBorderSize(int nSize);
+	int GetTopBorderSize() const;
+	void SetTopBorderSize(int nSize);
+	int GetRightBorderSize() const;
+	void SetRightBorderSize(int nSize);
+	int GetBottomBorderSize() const;
+	void SetBottomBorderSize(int nSize);
+	int GetBorderStyle() const;
+	void SetBorderStyle(int nStyle);
 
     // 位置相关
     virtual const RECT& GetPos() const;
@@ -85,6 +99,8 @@ public:
     // 鼠标提示
     virtual CDuiString GetToolTip() const;
     virtual void SetToolTip(LPCTSTR pstrText);
+	virtual void SetToolTipWidth(int nWidth);
+	virtual int	  GetToolTipWidth(void);	// 多行ToolTip单行最长宽度
 
     // 快捷键
     virtual TCHAR GetShortcut() const;
@@ -187,8 +203,11 @@ protected:
 	DWORD m_dwFocusBorderColor;
     bool m_bColorHSL;
     int m_nBorderSize;
+	int m_nBorderStyle;
+	int m_nTooltipWidth;
     SIZE m_cxyBorderRound;
     RECT m_rcPaint;
+	RECT m_rcBorderSize;
 };
 
 } // namespace DuiLib

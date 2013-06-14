@@ -203,10 +203,22 @@ void CWindowWnd::CenterWindow()
     ::GetWindowRect(m_hWnd, &rcDlg);
     RECT rcArea = { 0 };
     RECT rcCenter = { 0 };
+	HWND hWnd=*this;
     HWND hWndParent = ::GetParent(m_hWnd);
     HWND hWndCenter = ::GetWindowOwner(m_hWnd);
-    ::SystemParametersInfo(SPI_GETWORKAREA, NULL, &rcArea, NULL);
-    if( hWndCenter == NULL ) rcCenter = rcArea; else ::GetWindowRect(hWndCenter, &rcCenter);
+	if (hWndCenter!=NULL)
+		hWnd=hWndCenter;
+
+	// 处理多显示器模式下屏幕居中
+	MONITORINFO oMonitor = {};
+	oMonitor.cbSize = sizeof(oMonitor);
+	::GetMonitorInfo(::MonitorFromWindow(hWnd, MONITOR_DEFAULTTONEAREST), &oMonitor);
+	rcArea = oMonitor.rcWork;
+
+    if( hWndCenter == NULL )
+		rcCenter = rcArea;
+	else
+		::GetWindowRect(hWndCenter, &rcCenter);
 
     int DlgWidth = rcDlg.right - rcDlg.left;
     int DlgHeight = rcDlg.bottom - rcDlg.top;
@@ -361,3 +373,4 @@ void CWindowWnd::OnFinalMessage(HWND /*hWnd*/)
 }
 
 } // namespace DuiLib
+

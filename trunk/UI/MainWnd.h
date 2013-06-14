@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DuiLib/Utils/WinImplBase.hpp"
+#include "DuiLib/Utils/WinImplBase.h"
 
 class CMainWnd
 	: public WindowImplBase

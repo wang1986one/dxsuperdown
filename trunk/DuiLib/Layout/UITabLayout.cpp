@@ -107,7 +107,16 @@ namespace DuiLib
 			if( it == iIndex ) {
 				GetItemAt(it)->SetVisible(true);
 				GetItemAt(it)->SetFocus();
-				SetPos(m_rcItem);
+				RECT rect = m_rcItem;
+				if( (rect.right - rect.left) == 0 
+					|| (rect.bottom - rect.top) == 0)
+				{
+					rect.left = m_cXY.cx;
+					rect.top = m_cXY.cy;
+					rect.right = rect.left + m_cxyFixed.cx;
+					rect.bottom = rect.top + m_cxyFixed.cy;
+				}
+				SetPos(rect);
 			}
 			else GetItemAt(it)->SetVisible(false);
 		}

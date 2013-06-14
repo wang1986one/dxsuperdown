@@ -1116,16 +1116,31 @@ void CRenderEngine::DrawGradient(HDC hDC, const RECT& rc, DWORD dwFirst, DWORD d
     }
 }
 
-void CRenderEngine::DrawLine(HDC hDC, const RECT& rc, int nSize, DWORD dwPenColor)
+//************************************
+// 函数名称: DrawLine
+// 返回类型: void
+// 参数信息: HDC hDC
+// 参数信息: const RECT & rc
+// 参数信息: int nSize
+// 参数信息: DWORD dwPenColor
+// 参数信息: int nStyle
+// 函数说明: 
+//************************************
+void CRenderEngine::DrawLine( HDC hDC, const RECT& rc, int nSize, DWORD dwPenColor,int nStyle /*= PS_SOLID*/ )
 {
-    ASSERT(::GetObjectType(hDC)==OBJ_DC || ::GetObjectType(hDC)==OBJ_MEMDC);
-    POINT ptTemp = { 0 };
-    HPEN hPen = ::CreatePen(PS_SOLID, nSize, RGB(GetBValue(dwPenColor), GetGValue(dwPenColor), GetRValue(dwPenColor)));
-    HPEN hOldPen = (HPEN)::SelectObject(hDC, hPen);
-    ::MoveToEx(hDC, rc.left, rc.top, &ptTemp);
-    ::LineTo(hDC, rc.right, rc.bottom);
-    ::SelectObject(hDC, hOldPen);
-    ::DeleteObject(hPen);
+	ASSERT(::GetObjectType(hDC)==OBJ_DC || ::GetObjectType(hDC)==OBJ_MEMDC);
+
+	LOGPEN lg;
+	lg.lopnColor = RGB(GetBValue(dwPenColor), GetGValue(dwPenColor), GetRValue(dwPenColor));
+	lg.lopnStyle = nStyle;
+	lg.lopnWidth.x = nSize;
+	HPEN hPen = CreatePenIndirect(&lg);
+	HPEN hOldPen = (HPEN)::SelectObject(hDC, hPen);
+	POINT ptTemp = { 0 };
+	::MoveToEx(hDC, rc.left, rc.top, &ptTemp);
+	::LineTo(hDC, rc.right, rc.bottom);
+	::SelectObject(hDC, hOldPen);
+	::DeleteObject(hPen);
 }
 
 void CRenderEngine::DrawRect(HDC hDC, const RECT& rc, int nSize, DWORD dwPenColor)
@@ -1881,6 +1896,18 @@ HBITMAP CRenderEngine::GenerateBitmap(CPaintManagerUI* pManager, CControlUI* pCo
     ::DeleteDC(hPaintDC);
 
     return hBitmap;
+}
+
+SIZE CRenderEngine::GetTextSize( HDC hDC, CPaintManagerUI* pManager , LPCTSTR pstrText, int iFont, UINT uStyle )
+{
+	SIZE size = {0,0};
+	ASSERT(::GetObjectType(hDC)==OBJ_DC || ::GetObjectType(hDC)==OBJ_MEMDC);
+	if( pstrText == NULL || pManager == NULL ) return size;
+	::SetBkMode(hDC, TRANSPARENT);
+	HFONT hOldFont = (HFONT)::SelectObject(hDC, pManager->GetFont(iFont));
+	GetTextExtentPoint32(hDC, pstrText, _tcslen(pstrText) , &size);
+	::SelectObject(hDC, hOldFont);
+	return size;
 }
 
 } // namespace DuiLib

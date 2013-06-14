@@ -8,6 +8,7 @@ namespace DuiLib {
 //
 
 class CComboWnd;
+class CEditWnd;
 
 class UILIB_API CComboUI : public CContainerUI, public IListOwnerUI
 {
@@ -100,13 +101,14 @@ public:
     void PaintStatusImage(HDC hDC);
 
 protected:
-    CComboWnd* m_pWindow;
+    CComboWnd*	m_pWindow;
+	CEditWnd*		m_pEditWnd;
 
-    int m_iCurSel;
-    RECT m_rcTextPadding;
-    CDuiString m_sDropBoxAttributes;
-    SIZE m_szDropBox;
-    UINT m_uButtonState;
+    int m_iCurSel;					// 选中项索引序号
+    RECT m_rcTextPadding;	// 文字区
+    CDuiString m_sDropBoxAttributes;	// 下拉框属性
+    SIZE m_szDropBox;			// 下拉框高度
+    UINT m_uButtonState;		// 按钮状态
 
     CDuiString m_sNormalImage;
     CDuiString m_sHotImage;

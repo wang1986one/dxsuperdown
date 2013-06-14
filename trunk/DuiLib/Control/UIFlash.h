@@ -16,6 +16,7 @@ namespace DuiLib
 		virtual ~CFlashUI(void);
 
 		void SetFlashEventHandler(CFlashEventHandler* pHandler);
+		CFlashEventHandler* GetFlashEventHandler(void);
 		virtual bool DoCreateControl();
 		IShockwaveFlash* m_pFlash;
 
