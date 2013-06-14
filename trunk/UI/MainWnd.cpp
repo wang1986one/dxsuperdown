@@ -17,20 +17,12 @@ CMainWnd::~CMainWnd(void)
 
 void CMainWnd::InitWindow()
 {
-	
 	// 成员初始化
-	SidebarLayout = static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
-
-	HttpRequest* pRequest=new HttpRequest(_T("GET"),_T("http://www.flvcd.com/parse.php?kw=http://v.youku.com/v_show/id_XNDgyNjM1NjIw.html"));
-	// 下载数据到文件
-	//pRequest->SetSaveToFile(_T("D:\\a.txt"));
-
-	// 下载数据到内存
-	CMemBuffer buffer;
-	pRequest->SetContentBuffer(&buffer);
-
-	m_http.SendAsyncRequest(pRequest);
-	m_http.WaitRequest(pRequest);
+	SidebarLayout	= static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
+	m_btnClose		= static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("closebtn")));
+	m_btnMin			= static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("minbtn")));
+	m_btnMax		= static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("maxbtn")));
+	m_btnRestore	= static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("restorebtn")));
 }
 
 void CMainWnd::OnFinalMessage(HWND hWnd)
@@ -55,28 +47,27 @@ CDuiString CMainWnd::GetSkinFile()
 
 void CMainWnd::Notify( TNotifyUI &msg )
 {
-	// 很少使用的全局控制按钮，直接使用控件名做判断
 	CDuiString strControlName=msg.pSender->GetName();
 	if (msg.sType==_T("click"))
 	{
-		if (strControlName.CompareNoCase(_T("closebtn")) == 0)
+		if ( msg.pSender == m_btnClose)
 		{
 			Close();
 			return;
 		}
-		else if (strControlName.CompareNoCase(_T("minbtn")) == 0)
+		else if (msg.pSender == m_btnMin)
 		{
-			SendMessage(WM_SYSCOMMAND, SC_MINIMIZE, 0);
+			SendMessage(WM_SYSCOMMAND, SC_MINIMIZE , 0);
 			return;
 		}
-		else if (strControlName.CompareNoCase(_T("maxbtn")) == 0)
+		else if ( msg.pSender == m_btnMax)
 		{
-			SendMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0);
+			SendMessage(WM_SYSCOMMAND, SC_MAXIMIZE | HTCAPTION , 0);
 			return;
 		}
-		else if (strControlName.CompareNoCase(_T("restorebtn")) == 0)
+		else if ( msg.pSender == m_btnRestore)
 		{
-			SendMessage(WM_SYSCOMMAND, SC_RESTORE, 0);
+			SendMessage(WM_SYSCOMMAND, SC_RESTORE | HTCAPTION , 0);
 			return;
 		}
 		else	// 除全局控制按钮，经常改动的功能按钮控制代码分发到独立函数
@@ -154,10 +145,8 @@ void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 	CDuiString name = msg.pSender->GetName();
 	if (name==_T("ToggleSidebar"))
 	{
-		
 		//CVerticalLayoutUI * pControl = static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
 		SidebarLayout->SetVisible(!SidebarLayout->IsVisible());
-
 	}
 	else if(name==_T("Download")
 		||name==_T("VideoMerger")
@@ -223,5 +212,25 @@ void CMainWnd::OnMenu( WPARAM wParam,LPARAM lParam )
 	{
 		 //OnMenu_ZoomRatio(msg);
 	}
+}
+
+LRESULT CMainWnd::OnSysCommand( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+{
+	switch ( wParam & 0xFFF0)
+	{	// 处理右上角控制按钮
+	case SC_RESTORE:
+		m_btnMax->SetVisible(true);
+		m_btnRestore->SetVisible(false);
+		break;
+	case SC_MAXIMIZE:
+		m_btnMax->SetVisible(false);
+		m_btnRestore->SetVisible(true);
+		break;
+	case SC_CLOSE:
+		Close();
+		break;
+	}
+
+	return WindowImplBase::OnSysCommand(uMsg,wParam,lParam,bHandled);
 }
 

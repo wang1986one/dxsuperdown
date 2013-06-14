@@ -19,7 +19,7 @@ private:
 	virtual UINT GetClassStyle() const;
 	virtual UILIB_RESOURCETYPE GetResourceType() const;
 	virtual CDuiString GetZIPFileName() const;
-
+	virtual LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	void OnClick(TNotifyUI &msg);
 	void OnSelectChaged(TNotifyUI &msg);
 	void OnMenu(WPARAM wParam,LPARAM lParam);
@@ -27,5 +27,9 @@ private:
 	// 成员指针
 	CVerticalLayoutUI * SidebarLayout;
 
-	HttpManager m_http;
+	// 窗口控制按钮
+	CButtonUI* m_btnClose;
+	CButtonUI* m_btnMin;
+	CButtonUI* m_btnMax;
+	CButtonUI* m_btnRestore;
 };
