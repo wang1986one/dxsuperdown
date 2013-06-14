@@ -18,6 +18,8 @@ CMainWnd::~CMainWnd(void)
 void CMainWnd::InitWindow()
 {
 	// 成员初始化
+	m_TabContent		= static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("TabContentLayout")));
+	m_TabDownload	= static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("TabDownloadLayout")));
 	SidebarLayout	= static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
 	m_btnClose		= static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("closebtn")));
 	m_btnMin			= static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("minbtn")));
@@ -145,8 +147,8 @@ void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 	CDuiString name = msg.pSender->GetName();
 	if (name==_T("ToggleSidebar"))
 	{
-		//CVerticalLayoutUI * pControl = static_cast<CVerticalLayoutUI*>(m_PaintManager.FindControl(_T("SidebarLayout")));
 		SidebarLayout->SetVisible(!SidebarLayout->IsVisible());
+		return;
 	}
 	else if(name==_T("Download")
 		||name==_T("VideoMerger")
@@ -157,42 +159,41 @@ void CMainWnd::OnSelectChaged( TNotifyUI &msg )
 		||name==_T("TEST2")
 		||name==_T("TEST3"))
 	{
-			CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("主标签页")));
 			if(name==_T("Download"))
-				pControl->SelectItem(0);
+				m_TabContent->SelectItem(Content_Download);
 			else if(name==_T("VideoMerger"))
-				pControl->SelectItem(1);
+				m_TabContent->SelectItem(Content_VideoMerger);
 			else if(name==_T("Play"))
-				pControl->SelectItem(2);
+				m_TabContent->SelectItem(Content_Play);
 			else if(name==_T("MessageBoard"))
-				pControl->SelectItem(3);
+				m_TabContent->SelectItem(Content_MessageBoard);
 			else if(name==_T("DemoSite"))
-				pControl->SelectItem(4);
+				m_TabContent->SelectItem(Content_DemoSite);
 			else if(name==_T("TEST1"))
-				pControl->SelectItem(5);
+				m_TabContent->SelectItem(Content_TEST1);
 			else if(name==_T("TEST2"))
-				pControl->SelectItem(6);
+				m_TabContent->SelectItem(Content_TEST2);
 			else if(name==_T("TEST3"))
-				pControl->SelectItem(7);
+				m_TabContent->SelectItem(Content_TEST3);
+
+			return;
 	}
-	
 	else if(name==_T("AllTasks")
 		||name==_T("IsDown")
 		||name==_T("Complete")
 		||name==_T("Recycle"))
 	{
-		CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("下载标签页")));
 		if(name==_T("AllTasks"))
-			pControl->SelectItem(0);
+			m_TabDownload->SelectItem(Download_AllTasks);
 		else if(name==_T("IsDown"))
-			pControl->SelectItem(1);
+			m_TabDownload->SelectItem(Download_IsDown);
 		else if(name==_T("Complete"))
-			pControl->SelectItem(2);
+			m_TabDownload->SelectItem(Download_Complete);
 		else if(name==_T("Recycle"))
-			pControl->SelectItem(3);
+			m_TabDownload->SelectItem(Download_Recycle);
 
+		return;
 	}
-
 }
 
 void CMainWnd::OnMenu( WPARAM wParam,LPARAM lParam )

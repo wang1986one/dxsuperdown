@@ -55,7 +55,7 @@
     <HorizontalLayout padding="1,0,1,0" childpadding="0" bordercolor="#FF000000" bordersize="0" >
       <VerticalLayout padding="0,0,0,2" >
 
-        <TabLayout name="主标签页">
+        <TabLayout name="TabContentLayout">
           <!--主标签页第一页-->
           <VerticalLayout name="body"  padding="1,0,2,0"  bordercolor="#FF0000FF" bordersize="0" >
             <HorizontalLayout height="33" padding="0,0,0,0" childpadding="0" bordercolor="#FF0000FF" bordersize="0" >
@@ -74,7 +74,7 @@
 
             <HorizontalLayout bordercolor="#FF00FF00" bordersize="0"  >
 
-              <TabLayout name="下载标签页" selectedid="1" >
+              <TabLayout name="TabDownloadLayout" selectedid="1" >
                 <!--下载签页第一页-->
                 <HorizontalLayout>
                   <List name="AllTaskslist" bkcolor="#FFFFFFFF" inset="0,0,0,0" itemshowhtml="true" vscrollbar="true" hscrollbar="true" headerbkimage="file='Common\list_header_bg.png'" itemalign="center" itembkcolor="#FFE2DDDF" itemaltbk="true" bordercolor="#DBEFFD" bordersize="0" menu="true">
