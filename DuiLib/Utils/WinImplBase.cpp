@@ -164,22 +164,7 @@ namespace DuiLib
 
 	LRESULT WindowImplBase::OnSysCommand( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
 	{
-		if (wParam == SC_CLOSE)
-		{
-			bHandled = TRUE;
-			SendMessage(WM_CLOSE);
-			return 0;
-		}
-#if defined(WIN32) && !defined(UNDER_CE)
-		BOOL bZoomed = ::IsZoomed(*this);
-		LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
-		if( ::IsZoomed(*this) != bZoomed )
-		{
-		}
-#else
-		LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
-#endif
-		return lRes;
+		return CWindowWnd::HandleMessage(uMsg, wParam, lParam);
 	}
 
 	LRESULT WindowImplBase::OnChar( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
