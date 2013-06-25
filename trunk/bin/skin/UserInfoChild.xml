@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <Window size="210,90">
-    <HorizontalLayout width="210" padding="2,12,2,2">
-                    <Control width="15" />
-                    <Button name="LOGO" tooltip=" DirectX酱." bordersize="2" width="64" height="64" bkcolor="#FF000000" bordercolor="#00DBEFFD" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;Common\LOGO.png&apos;" hotimage="file=&apos;Common\LOGO.png&apos;" pushedimage="file=&apos;Common\LOGO.png&apos;" />
-                    <VerticalLayout>
-                        <Text text="{c #386382} DirectX酱.{/c}" bordercolor="#00DBEFFD" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" align="wrap" />
-                        <Text text="{c #386382} Lv.24{n}{/c}" bordercolor="#00DBEFFD" maxheight="26" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" align="wrap" />
-                        <Text text="{c #E4007F} VIP 7{/c}" bordercolor="#00DBEFFD" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" align="wrap" />
-                    </VerticalLayout>
-                </HorizontalLayout>
+  <HorizontalLayout width="210" padding="2,12,2,2" >
+    <Control width="5" />
+    <Button name="LOGO" tooltip="DxSuperDown" height="64" width="64" font="3" text="" textcolor="#DBEFFD" textpadding="250,0,0,0" bordercolor="#DBEFFD" bordersize="2" bkcolor="#00000000" normalimage="file='Common\LOGO3.GIF' source='15,0,105,110' " hotimage="file='Common\LOGO2.png'" pushedimage="file='Common\LOGO2.png'"/>
+    <VerticalLayout>
+      <Control />
+      <Text  font="3" text="Wow!"  textcolor="#DBEFFD" float="false"  bordercolor="#DBEFFD" bordersize="0" />
+       <!--<Text text="{c #386382} 电脑管家.{/c}" font="3" text="" textcolor="#DBEFFD" float="false" showhtml="true" bordercolor="#DBEFFD" bordersize="0" />-->
+      <Control height="12"/>
+      <!--<Text text="{c #386382} Lv.24{n}{/c}"  float="false" maxheight="26" showhtml="true" bordercolor="#DBEFFD" bordersize="0" />
+      <Text text="{c #E4007F} VIP 7{/c}"  float="false"  showhtml="true" bordercolor="#DBEFFD" bordersize="0" />-->
+    </VerticalLayout >
+  </HorizontalLayout>
 </Window>
